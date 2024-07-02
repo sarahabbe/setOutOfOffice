@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>979,5397</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1005.5999999999999,5261.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetOutlookEvents_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="80">
@@ -106,6 +106,7 @@
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -113,21 +114,21 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="GetOutlookEvents" sap:VirtualizedContainerService.HintSize="940,5332" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetOutlookEvents" sap:VirtualizedContainerService.HintSize="849.6,5156.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Switch x:TypeArguments="x:Boolean" DisplayName="Switch - If end date is before start date, warn user. Otherwise proceed with retrieving Outlook events" Expression="[datetime.Parse(io_dict_config(&quot;fromDate&quot;).ToString) &gt; datetime.Parse(io_dict_config(&quot;toDate&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="878,5210" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-      <Sequence x:Key="True" sap:VirtualizedContainerService.HintSize="400,374" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Switch x:TypeArguments="x:Boolean" DisplayName="Switch - If end date is before start date, warn user. Otherwise proceed with retrieving Outlook events" Expression="[datetime.Parse(io_dict_config(&quot;fromDate&quot;).ToString) &gt; datetime.Parse(io_dict_config(&quot;toDate&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="806.4,5067.2" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Sequence x:Key="True" sap:VirtualizedContainerService.HintSize="476.8,345.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="BroadcastMessage_3" Message="[&quot;Error: The end date is set before the starting date.&quot;+vbNewLine+&quot;Please set an ending date after the starting date.&quot;]" PollingInterval="10" Timeout="0" />
-        <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="433.6,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_3" Message="[&quot;Error: The end date is set before the starting date.&quot;+vbNewLine+&quot;Please set an ending date after the starting date.&quot;]" PollingInterval="10" Timeout="0" />
+        <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_7">
           <Assign.To>
             <OutArgument x:TypeArguments="x:Object">[io_dict_Config("viewEvents")]</OutArgument>
           </Assign.To>
@@ -136,7 +137,7 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence x:Key="False" DisplayName="Search events for out-of-office period" sap:VirtualizedContainerService.HintSize="838,4470" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <Sequence x:Key="False" DisplayName="Search events for out-of-office period" sap:VirtualizedContainerService.HintSize="766.4,4320" sap2010:WorkflowViewState.IdRef="Sequence_5">
         <Sequence.Variables>
           <Variable x:TypeArguments="mg:Event[]" Name="evArr_outlookEvents" />
           <Variable x:TypeArguments="x:Int32" Name="int_eventIndex" />
@@ -148,23 +149,23 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="776,142" sap2010:WorkflowViewState.IdRef="BroadcastMessage_2" Message="[&quot;Checking your calendar for events while you're out-of-office&quot; + vbNewLine + &quot;If requested, please authorize O365 access to UiPath&quot;]" PollingInterval="10" Timeout="0" />
-        <ui:BuildDataTable DataTable="[dt_events]" DisplayName="Build Events Data Table" sap:VirtualizedContainerService.HintSize="776,69" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Index&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;organizer&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;participants&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;startTime&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="776,3947" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+        <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="723.2,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_2" Message="[&quot;Checking your calendar for events while you're out-of-office&quot; + vbNewLine + &quot;If requested, please authorize O365 access to UiPath&quot;]" PollingInterval="10" Timeout="0" />
+        <ui:BuildDataTable DataTable="[dt_events]" DisplayName="Build Events Data Table" sap:VirtualizedContainerService.HintSize="723.2,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Index&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;organizer&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;participants&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;startTime&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="723.2,3668.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
           <TryCatch.Try>
-            <Sequence DisplayName="Get Outlook events" sap:VirtualizedContainerService.HintSize="738,3082" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence DisplayName="Get Outlook events" sap:VirtualizedContainerService.HintSize="686.4,2817.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" Tenant="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" AuthenticationType="InteractiveToken" DisplayName="Microsoft Office 365 Scope" Environment="Global" sap:VirtualizedContainerService.HintSize="676,191" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_1" OAuthApplication="UiPath" Services="Mail, Calendar">
+              <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" Tenant="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" AuthenticationType="InteractiveToken" DisplayName="Microsoft Office 365 Scope" Environment="Global" sap:VirtualizedContainerService.HintSize="643.2,172.8" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_1" OAuthApplication="UiPath" Services="Mail, Calendar">
                 <uma:Office365ApplicationScope.Body>
                   <ActivityAction x:TypeArguments="mg:GraphServiceClient">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="mg:GraphServiceClient" Name="ParentScope" />
                     </ActivityAction.Argument>
-                    <umac:SearchEvents Calendar="{x:Null}" EventId="{x:Null}" SearchQuery="{x:Null}" Account="[io_dict_Config(&quot;emailAccount&quot;).ToString]" DisplayName="Search Events" EndDate="[datetime.Parse(io_dict_config(&quot;toDate&quot;).ToString)]" Events="[evArr_outlookEvents]" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="SearchEvents_1" MaxResults="100" ReturnRecurring="True" StartDate="[datetime.Parse(io_dict_config(&quot;fromDate&quot;).ToString)]">
+                    <umac:SearchEvents Calendar="{x:Null}" EventId="{x:Null}" SearchQuery="{x:Null}" Account="[io_dict_Config(&quot;emailAccount&quot;).ToString]" DisplayName="Search Events" EndDate="[datetime.Parse(io_dict_config(&quot;toDate&quot;).ToString)]" Events="[evArr_outlookEvents]" sap:VirtualizedContainerService.HintSize="333.6,86.4" sap2010:WorkflowViewState.IdRef="SearchEvents_1" MaxResults="100" ReturnRecurring="True" StartDate="[datetime.Parse(io_dict_config(&quot;fromDate&quot;).ToString)]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -175,15 +176,15 @@
                   </ActivityAction>
                 </uma:Office365ApplicationScope.Body>
               </uma:Office365ApplicationScope>
-              <ui:ForEach x:TypeArguments="mg:Event" CurrentIndex="[int_eventIndex]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="676,1260" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[evArr_outlookEvents]">
+              <ui:ForEach x:TypeArguments="mg:Event" CurrentIndex="[int_eventIndex]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="643.2,1116.8" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[evArr_outlookEvents]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="mg:Event">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="mg:Event" Name="ev" />
                     </ActivityAction.Argument>
-                    <If Condition="[Not ev.IsCancelled.Value]" sap:VirtualizedContainerService.HintSize="640,1126" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If Condition="[Not ev.IsCancelled.Value]" sap:VirtualizedContainerService.HintSize="608,991.2" sap2010:WorkflowViewState.IdRef="If_2">
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="558,863" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <Sequence sap:VirtualizedContainerService.HintSize="574.4,808" sap2010:WorkflowViewState.IdRef="Sequence_4">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="scg:IEnumerable(mg:Attendee)" Name="attArr_attendees" />
                             <Variable x:TypeArguments="x:Int32" Name="int_attendeesCount" />
@@ -193,13 +194,13 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence DisplayName="Get attendee count" sap:VirtualizedContainerService.HintSize="496,506" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <Sequence DisplayName="Get attendee count" sap:VirtualizedContainerService.HintSize="531.2,490.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="468.8,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                               <ui:MultipleAssign.AssignOperations>
                                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -221,13 +222,13 @@
                                 </scg:List>
                               </ui:MultipleAssign.AssignOperations>
                             </ui:MultipleAssign>
-                            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,203" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[attArr_attendees]">
+                            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="468.8,206.4" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[attArr_attendees]">
                               <ui:ForEach.Body>
                                 <ActivityAction x:TypeArguments="x:Object">
                                   <ActivityAction.Argument>
                                     <DelegateInArgument x:TypeArguments="x:Object" Name="attendee" />
                                   </ActivityAction.Argument>
-                                  <Assign sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_4">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:Int32">[int_attendeesCount]</OutArgument>
                                     </Assign.To>
@@ -239,15 +240,18 @@
                               </ui:ForEach.Body>
                             </ui:ForEach>
                           </Sequence>
-                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[new object(){int_eventIndex.ToString,ev.Organizer.EmailAddress.Name, ev.Subject, int_attendeesCount.ToString,datetime.Parse(ev.Start.DateTime).ToString(&quot;M/dd h:mm tt&quot;),datetime.Parse(ev.Start.DateTime)}]" DataTable="[dt_events]" DisplayName="Add Data Row for event" sap:VirtualizedContainerService.HintSize="496,195" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[new object(){int_eventIndex.ToString,ev.Organizer.EmailAddress.Name, ev.Subject, int_attendeesCount.ToString,datetime.Parse(ev.Start.DateTime).ToString(&quot;M/dd h:mm tt&quot;),datetime.Parse(ev.Start.DateTime)}]" DataTable="[dt_events]" DisplayName="Add Data Row for event" sap:VirtualizedContainerService.HintSize="531.2,188" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                         </Sequence>
                       </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_14" />
+                      </If.Else>
                     </If>
                   </ActivityAction>
                 </ui:ForEach.Body>
               </ui:ForEach>
-              <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="date" DataTable="[dt_events]" DisplayName="Sort events datatable by earliest date" sap:VirtualizedContainerService.HintSize="676,89" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[dt_events]" SortOrder="Ascending" />
-              <Sequence DisplayName="Import events datatable back into Config" sap:VirtualizedContainerService.HintSize="676,362" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="date" DataTable="[dt_events]" DisplayName="Sort events datatable by earliest date" sap:VirtualizedContainerService.HintSize="643.2,80.8" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[dt_events]" SortOrder="Ascending" />
+              <Sequence DisplayName="Import events datatable back into Config" sap:VirtualizedContainerService.HintSize="643.2,293.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="njl:JArray" Name="jArr_events" />
                 </Sequence.Variables>
@@ -256,14 +260,14 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="338,130" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_1" JsonArray="[jArr_events]" JsonString="[JsonConvert.SerializeObject(dt_events)]">
+                <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_1" JsonArray="[jArr_events]" JsonString="[JsonConvert.SerializeObject(dt_events)]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:DeserializeJsonArray>
-                <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_5">
+                <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_5">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Object">[io_dict_Config("eventsGrid")]</OutArgument>
                   </Assign.To>
@@ -272,7 +276,7 @@
                   </Assign.Value>
                 </Assign>
               </Sequence>
-              <Assign DisplayName="Assign events array to Config" sap:VirtualizedContainerService.HintSize="676,70" sap2010:WorkflowViewState.IdRef="Assign_6">
+              <Assign DisplayName="Assign events array to Config" sap:VirtualizedContainerService.HintSize="643.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_6">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Object">[io_dict_Config("events")]</OutArgument>
                 </Assign.To>
@@ -280,7 +284,7 @@
                   <InArgument x:TypeArguments="x:String">[JsonConvert.SerializeObject(evArr_outlookEvents)]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign DisplayName="Assign calendar acccessible flag to true" sap:VirtualizedContainerService.HintSize="676,70" sap2010:WorkflowViewState.IdRef="Assign_12">
+              <Assign DisplayName="Assign calendar acccessible flag to true" sap:VirtualizedContainerService.HintSize="643.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_12">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Object">[io_dict_Config("calendarAccessible")]</OutArgument>
                 </Assign.To>
@@ -288,15 +292,15 @@
                   <InArgument x:TypeArguments="x:Object">[True]</InArgument>
                 </Assign.Value>
               </Assign>
-              <If Condition="[dt_events.RowCount &gt; 0]" sap:VirtualizedContainerService.HintSize="676,678" sap2010:WorkflowViewState.IdRef="If_4">
+              <If Condition="[dt_events.RowCount &gt; 0]" sap:VirtualizedContainerService.HintSize="643.2,660.8" sap2010:WorkflowViewState.IdRef="If_4">
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="400,374" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <Sequence sap:VirtualizedContainerService.HintSize="476.8,345.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign DisplayName="Assign events array to Config" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_13">
+                    <Assign DisplayName="Assign events array to Config" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_13">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Object">[io_dict_Config("eventsFoundFlag")]</OutArgument>
                       </Assign.To>
@@ -304,11 +308,11 @@
                         <InArgument x:TypeArguments="x:Object">[True]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="BroadcastMessage_7" Message="Retrieved calendar events" PollingInterval="10" Timeout="0" />
+                    <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="433.6,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_7" Message="Retrieved calendar events" PollingInterval="10" Timeout="0" />
                   </Sequence>
                 </If.Then>
                 <If.Else>
-                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
@@ -335,7 +339,7 @@
             </Sequence>
           </TryCatch.Try>
           <TryCatch.Catches>
-            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="742,545" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="689.6,538.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -346,14 +350,14 @@
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Automation could not retrieve calendar events with this email account" sap:VirtualizedContainerService.HintSize="493,476" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <Sequence DisplayName="Automation could not retrieve calendar events with this email account" sap:VirtualizedContainerService.HintSize="473.6,428" sap2010:WorkflowViewState.IdRef="Sequence_12">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="BroadcastMessage_5" Message="[&quot;Could not retrieve calendar events&quot; + vbNewLine + &quot;Please make sure you are using a corporate account&quot;]" PollingInterval="10" Timeout="0" />
-                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,172" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                  <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="430.4,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_5" Message="[&quot;Could not retrieve calendar events&quot; + vbNewLine + &quot;Please make sure you are using a corporate account&quot;]" PollingInterval="10" Timeout="0" />
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,164" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -388,13 +392,26 @@
             </Catch>
           </TryCatch.Catches>
         </TryCatch>
-        <Assign sap:VirtualizedContainerService.HintSize="776,70" sap2010:WorkflowViewState.IdRef="Assign_10">
+        <Assign sap:VirtualizedContainerService.HintSize="723.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_10">
           <Assign.To>
             <OutArgument x:TypeArguments="x:Object">[io_dict_Config("outOfOfficeMessage")]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="x:String">["I am currently out-of-office from " +DateTime.Parse(io_dict_config("fromDate").ToString).ToString("MM/dd/yy h:ss tt") + " to " + datetime.Parse(io_dict_config("toDate").ToString).ToString("MM/dd/yy h:ss tt")+", please excuse any delays in responses."]</InArgument>
+            <InArgument x:TypeArguments="x:String">["I am currently out-of-office from " +DateTime.Parse(io_dict_config("fromDate").ToString).ToString("MM/dd/yy h:mm tt") + " to " + datetime.Parse(io_dict_config("toDate").ToString).ToString("MM/dd/yy h:mm tt")+", please excuse any delays in responses."]</InArgument>
           </Assign.Value>
+        </Assign>
+        <Assign sap2010:Annotation.AnnotationText="Adding the dates to the out of office reply for outside the organization&#xD;&#xA;" sap:VirtualizedContainerService.HintSize="723.2,125.6" sap2010:WorkflowViewState.IdRef="Assign_14">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Object">[io_dict_Config("outOfOfficeMessage_Outside")]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">["I am currently out-of-office from " +DateTime.Parse(io_dict_config("fromDate").ToString).ToString("MM/dd/yy h:mm tt") + " to " + datetime.Parse(io_dict_config("toDate").ToString).ToString("MM/dd/yy h:mm tt")+", please excuse any delays in responses."]</InArgument>
+          </Assign.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
         </Assign>
       </Sequence>
     </Switch>

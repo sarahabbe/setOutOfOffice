@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1078,12418</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1147.2,11763.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Set_OOO_Auto_Reply_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -32,10 +32,12 @@
       <x:String>UiPath.UIAutomationNext.Activities</x:String>
       <x:String>UiPath.UIAutomationNext.Contracts</x:String>
       <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="48">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="96">
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>Microsoft.Win32.Registry</AssemblyReference>
@@ -82,6 +84,12 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -89,16 +97,16 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Set out-of-office email auto-reply" sap:VirtualizedContainerService.HintSize="1088,12353" sap2010:WorkflowViewState.IdRef="Sequence_78">
+  <Sequence DisplayName="Set out-of-office email auto-reply" sap:VirtualizedContainerService.HintSize="1088.8,11698.4" sap2010:WorkflowViewState.IdRef="Sequence_78">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="1046,133" sap2010:WorkflowViewState.IdRef="BroadcastMessage_1" Message="Preparing to set your out-of-office email auto-reply" PollingInterval="10" Timeout="0" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1046,12092" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+    <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="1045.6,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_1" Message="Preparing to set your out-of-office email auto-reply" PollingInterval="10" Timeout="0" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1045.6,11434.4" sap2010:WorkflowViewState.IdRef="TryCatch_3">
       <TryCatch.Try>
-        <Sequence DisplayName="Set out-of-office email auto-reply" sap:VirtualizedContainerService.HintSize="988,11123" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="Set out-of-office email auto-reply" sap:VirtualizedContainerService.HintSize="988.8,10464" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="mw:RegistryKey" sap2010:Annotation.AnnotationText="Type 'mw:RegistryKey' ('clr-namespace:Microsoft.Win32;assembly=System.Private.CoreLib') could not be resolved and was automatically replaced with 'UnknownType'" Name="regkey" />
             <Variable x:TypeArguments="x:String" Name="str_path" />
@@ -117,15 +125,15 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="946,133" sap2010:WorkflowViewState.IdRef="BroadcastMessage_2" Message="Checking Outlook language" PollingInterval="10" Timeout="0" />
-          <Sequence DisplayName="Get Outlook executable path" sap:VirtualizedContainerService.HintSize="946,490" sap2010:WorkflowViewState.IdRef="Sequence_55">
+          <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="945.6,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_2" Message="Checking Outlook language" PollingInterval="10" Timeout="0" />
+          <Sequence DisplayName="Get Outlook executable path" sap:VirtualizedContainerService.HintSize="945.6,448" sap2010:WorkflowViewState.IdRef="Sequence_55">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_27">
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_27">
               <Assign.To>
                 <OutArgument x:TypeArguments="mw:RegistryKey">[regkey]</OutArgument>
               </Assign.To>
@@ -133,7 +141,7 @@
                 <InArgument x:TypeArguments="mw:RegistryKey">[Microsoft.Win32.Registry.LocalMachine.OpenSubKey ("Software\\microsoft\\windows\\currentversion\\app paths\\OUTLOOK.EXE")]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_28">
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_28">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[str_path]</OutArgument>
               </Assign.To>
@@ -141,25 +149,25 @@
                 <InArgument x:TypeArguments="x:String">[regkey.GetValue("Path").ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,148" sap2010:WorkflowViewState.IdRef="LogMessage_64" Level="Info" Message="[&quot;Outlook found at path: &quot; + str_path]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_64" Level="Info" Message="[&quot;Outlook found at path: &quot; + str_path]" />
           </Sequence>
-          <Sequence DisplayName="get appVersion from path" sap:VirtualizedContainerService.HintSize="946,1109" sap2010:WorkflowViewState.IdRef="Sequence_60">
+          <Sequence DisplayName="get appVersion from path" sap:VirtualizedContainerService.HintSize="945.6,1124" sap2010:WorkflowViewState.IdRef="Sequence_60">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[str_path &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="482,987" sap2010:WorkflowViewState.IdRef="If_8">
+            <If Condition="[str_path &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="510.4,1012" sap2010:WorkflowViewState.IdRef="If_8">
               <If.Then>
-                <Sequence DisplayName="variable path exists" sap:VirtualizedContainerService.HintSize="400,302" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                <Sequence DisplayName="variable path exists" sap:VirtualizedContainerService.HintSize="476.8,292.8" sap2010:WorkflowViewState.IdRef="Sequence_58">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign DisplayName="Assign regex match" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_29">
+                  <Assign DisplayName="Assign regex match" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_29">
                     <Assign.To>
                       <OutArgument x:TypeArguments="str:Match">[match]</OutArgument>
                     </Assign.To>
@@ -167,7 +175,7 @@
                       <InArgument x:TypeArguments="str:Match">[regex.match(str_path, "\\Office(\d+)\\")]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_30">
+                  <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_30">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[str_outlookVersion]</OutArgument>
                     </Assign.To>
@@ -178,14 +186,14 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="get path - outlook oppened" sap:VirtualizedContainerService.HintSize="400,522" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                <Sequence DisplayName="get path - outlook oppened" sap:VirtualizedContainerService.HintSize="476.8,536" sap2010:WorkflowViewState.IdRef="Sequence_59">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_31">
+                  <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_31">
                     <Assign.To>
                       <OutArgument x:TypeArguments="mw:RegistryKey">[regkey]</OutArgument>
                     </Assign.To>
@@ -193,7 +201,7 @@
                       <InArgument x:TypeArguments="mw:RegistryKey">[Microsoft.Win32.Registry.LocalMachine.OpenSubKey ("Software\\microsoft\\windows\\currentversion\\app paths\\OUTLOOK.EXE")]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_32">
+                  <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_32">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[str_path]</OutArgument>
                     </Assign.To>
@@ -201,7 +209,7 @@
                       <InArgument x:TypeArguments="x:String">[regkey.GetValue("Path").ToString]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Assign DisplayName="Assign regex match" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_33">
+                  <Assign DisplayName="Assign regex match" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_33">
                     <Assign.To>
                       <OutArgument x:TypeArguments="str:Match">[match]</OutArgument>
                     </Assign.To>
@@ -209,7 +217,7 @@
                       <InArgument x:TypeArguments="str:Match">[regex.match(str_path, "\\Office(\d+)\\")]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_34">
+                  <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_34">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[str_outlookVersion]</OutArgument>
                     </Assign.To>
@@ -221,8 +229,8 @@
               </If.Else>
             </If>
           </Sequence>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="946,148" sap2010:WorkflowViewState.IdRef="LogMessage_67" Level="Trace" Message="[&quot;outlook version is: &quot; + str_outlookVersion]" />
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetLanguageMapping workflow" sap:VirtualizedContainerService.HintSize="946,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Continue_Workflows\GetLanguageMapping.xaml">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="945.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_67" Level="Trace" Message="[&quot;outlook version is: &quot; + str_outlookVersion]" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetLanguageMapping workflow" sap:VirtualizedContainerService.HintSize="945.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Continue_Workflows\GetLanguageMapping.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InOutArgument x:TypeArguments="x:String" x:Key="io_backButton">[str_backButton]</InOutArgument>
               <InOutArgument x:TypeArguments="x:String" x:Key="io_fileTab">[str_fileTab]</InOutArgument>
@@ -235,29 +243,29 @@
               <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_dict_Config">[io_dict_Config]</InOutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="946,142" sap2010:WorkflowViewState.IdRef="BroadcastMessage_3" Message="Setting your out-of-office email auto-reply" PollingInterval="10" Timeout="0" />
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="946,8359" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="WindowMessages" ScopeGuid="8374f0d4-229e-4532-8a61-579479c3112b" Version="V2" WindowResize="Maximize">
+          <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="945.6,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_3" Message="Setting your out-of-office email auto-reply" PollingInterval="10" Timeout="0" />
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="945.6,7794.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="WindowMessages" ScopeGuid="8374f0d4-229e-4532-8a61-579479c3112b" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="912,8059" sap2010:WorkflowViewState.IdRef="Sequence_77">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="892.8,7503.2" sap2010:WorkflowViewState.IdRef="Sequence_77">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NCheckState DisplayName="Check for Back button" sap:VirtualizedContainerService.HintSize="850,706" sap2010:WorkflowViewState.IdRef="NCheckState_1" Timeout="1.5" Version="V1">
+                  <uix:NCheckState DisplayName="Check for Back button" sap:VirtualizedContainerService.HintSize="849.6,624" sap2010:WorkflowViewState.IdRef="NCheckState_1" Timeout="1.5" Version="V1">
                     <uix:NCheckState.IfExists>
-                      <Sequence sap:VirtualizedContainerService.HintSize="400,480" sap2010:WorkflowViewState.IdRef="Sequence_70">
+                      <Sequence sap:VirtualizedContainerService.HintSize="449.6,405.6" sap2010:WorkflowViewState.IdRef="Sequence_70">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,150" sap2010:WorkflowViewState.IdRef="LogMessage_89" Level="Trace" Message="[&quot;Clicking back button&quot;]" />
-                        <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click - Back button" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" Version="V1">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_89" Level="Trace" Message="[&quot;Clicking back button&quot;]" />
+                        <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click - Back button" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" Version="V1">
                           <uix:NClick.Target>
                             <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[String.Format(&quot;&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='* - Outlook' /&gt;&lt;uia automationid='FileTabButton' cls='NetUISimpleButton' name='{0}' /&gt;&quot;, str_backButton)]" Guid="194fc3c7-948b-4d8c-a34f-52b0c14a6398" SearchSteps="Selector" />
                           </uix:NClick.Target>
@@ -265,26 +273,26 @@
                       </Sequence>
                     </uix:NCheckState.IfExists>
                     <uix:NCheckState.IfNotExists>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,150" sap2010:WorkflowViewState.IdRef="LogMessage_90" Level="Trace" Message="[&quot;File tab already visible&quot;]" />
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_90" Level="Trace" Message="[&quot;File tab already visible&quot;]" />
                     </uix:NCheckState.IfNotExists>
                     <uix:NCheckState.Target>
                       <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[String.Format(&quot;&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='*' /&gt;&lt;uia automationid='FileTabButton' cls='NetUISimpleButton' name='{0}' /&gt;&quot;, str_backButton)]" Guid="c99421db-413f-4fa3-8624-b441842c058c" SearchSteps="Selector" WaitForReadyArgument="Interactive" />
                     </uix:NCheckState.Target>
                   </uix:NCheckState>
-                  <Sequence DisplayName="Go To Automatic Replies Sequence" sap:VirtualizedContainerService.HintSize="850,892" sap2010:WorkflowViewState.IdRef="Sequence_71">
+                  <Sequence DisplayName="Go To Automatic Replies Sequence" sap:VirtualizedContainerService.HintSize="849.6,800.8" sap2010:WorkflowViewState.IdRef="Sequence_71">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,150" sap2010:WorkflowViewState.IdRef="LogMessage_91" Level="Trace" Message="[&quot;Clicking File tab&quot;]" />
-                    <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click - File tab" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" Version="V1">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_91" Level="Trace" Message="[&quot;Clicking File tab&quot;]" />
+                    <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click - File tab" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" Version="V1">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[String.Format(&quot;&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='* - Outlook' /&gt;&lt;uia automationid='FileTabButton' cls='NetUIRibbonTab' name='{0}' /&gt;&quot;, str_fileTab)]" Guid="194fc3c7-948b-4d8c-a34f-52b0c14a6398" SearchSteps="Selector" />
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <uix:NSelectItem DisplayName="Select email account" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="[io_dict_Config(&quot;emailAccount&quot;).ToString]" ScopeIdentifier="8374f0d4-229e-4532-8a61-579479c3112b" Version="V1">
+                    <uix:NSelectItem DisplayName="Select email account" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="[io_dict_Config(&quot;emailAccount&quot;).ToString]" ScopeIdentifier="8374f0d4-229e-4532-8a61-579479c3112b" Version="V1">
                       <uix:NSelectItem.Items>
                         <scg:List x:TypeArguments="x:String" Capacity="0" />
                       </uix:NSelectItem.Items>
@@ -292,44 +300,44 @@
                         <uix:TargetAnchorable DesignTimeRectangle="190, 111, 558, 43" ElementType="DropDown" FriendlyName="'attended2021@gmail.com'" FullSelectorArgument="&lt;uia cls='NetUIElement' /&gt;&lt;uia cls='NetUISlabContainer' idx='1' /&gt;&lt;uia cls='NetUIDropdownAnchor' /&gt;" Guid="5819acf4-0039-405f-87e1-6ed855e2c6fd" ImageBase64="" InformativeScreenshot="d1bd80b0baf6e7747b5e72484e30b071.png" ScopeSelectorArgument="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='*' /&gt;" SearchSteps="Selector" />
                       </uix:NSelectItem.Target>
                     </uix:NSelectItem>
-                    <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click - Automatic replies" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" Timeout="2" Version="V1">
+                    <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click - Automatic replies" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" Timeout="2" Version="V1">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[String.Format(&quot;&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='* - Outlook' /&gt;&lt;uia cls='NetUIElement' name='{0}' /&gt;&lt;uia cls='NetUISlabContainer' name='*{1}' /&gt;&lt;uia cls='NetUI*Button' name='{1}' /&gt;&quot;, str_replyInfo, str_replyText)]" Guid="194fc3c7-948b-4d8c-a34f-52b0c14a6398" SearchSteps="Selector" />
                       </uix:NClick.Target>
                     </uix:NClick>
                   </Sequence>
-                  <Sequence DisplayName="Check/Uncheck Sequence" sap:VirtualizedContainerService.HintSize="850,822" sap2010:WorkflowViewState.IdRef="Sequence_72">
+                  <Sequence DisplayName="Check/Uncheck Sequence" sap:VirtualizedContainerService.HintSize="849.6,730.4" sap2010:WorkflowViewState.IdRef="Sequence_72">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,150" sap2010:WorkflowViewState.IdRef="LogMessage_93" Level="Trace" Message="[&quot;Selecting 'Send automatic replies'&quot;]" />
-                    <ui:BlockUserInput TimeoutMS="{x:Null}" BlockType="All" DisplayName="Block User Input" sap:VirtualizedContainerService.HintSize="436,302" sap2010:WorkflowViewState.IdRef="BlockUserInput_2" KeyModifiers="Alt" SpecialKey="True">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="435.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_93" Level="Trace" Message="[&quot;Selecting 'Send automatic replies'&quot;]" />
+                    <ui:BlockUserInput TimeoutMS="{x:Null}" BlockType="All" DisplayName="Block User Input" sap:VirtualizedContainerService.HintSize="435.2,284.8" sap2010:WorkflowViewState.IdRef="BlockUserInput_2" KeyModifiers="Alt" SpecialKey="True">
                       <ui:BlockUserInput.Body>
-                        <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'Button' - Send Automatic Replies" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" Version="V1">
+                        <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'Button' - Send Automatic Replies" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" Version="V1">
                           <uix:NClick.Target>
                             <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="&lt;wnd app='outlook.exe' cls='#32770' title='*' /&gt;&lt;wnd ctrlid='4161' title='*' /&gt;" Guid="194fc3c7-948b-4d8c-a34f-52b0c14a6398" SearchSteps="Selector" />
                           </uix:NClick.Target>
                         </uix:NClick>
                       </ui:BlockUserInput.Body>
                     </ui:BlockUserInput>
-                    <uix:NCheck Action="Check" DelayAfter="0" DelayBefore="0" DisplayName="Check - Only Send During This Time Range" sap:VirtualizedContainerService.HintSize="436,166" sap2010:WorkflowViewState.IdRef="NCheck_1" Version="V1">
+                    <uix:NCheck Action="Check" DelayAfter="0" DelayBefore="0" DisplayName="Check - Only Send During This Time Range" sap:VirtualizedContainerService.HintSize="435.2,157.6" sap2010:WorkflowViewState.IdRef="NCheck_1" Version="V1">
                       <uix:NCheck.Target>
                         <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="&lt;wnd app='outlook.exe' cls='#32770' title='*' /&gt;&lt;wnd ctrlid='4224' title='*' /&gt;" Guid="3a46cba0-ee30-44b6-bd88-e8afe52b44e6" SearchSteps="Selector" />
                       </uix:NCheck.Target>
                     </uix:NCheck>
                   </Sequence>
-                  <Sequence DisplayName="Set auto-reply" sap:VirtualizedContainerService.HintSize="850,1606" sap2010:WorkflowViewState.IdRef="Sequence_73">
+                  <Sequence DisplayName="Set auto-reply" sap:VirtualizedContainerService.HintSize="849.6,1479.2" sap2010:WorkflowViewState.IdRef="Sequence_73">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,150" sap2010:WorkflowViewState.IdRef="LogMessage_95" Level="Trace" Message="[&quot;Setting auto-reply&quot;]" />
-                    <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="0" DelayBefore="0" DisplayName="Set start date" sap:VirtualizedContainerService.HintSize="338,144" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[io_dict_config(&quot;fromDate&quot;).ToString.Substring(0,10)]">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_95" Level="Trace" Message="[&quot;Setting auto-reply&quot;]" />
+                    <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="0" DelayBefore="0" DisplayName="Set start date" sap:VirtualizedContainerService.HintSize="387.2,135.2" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[io_dict_config(&quot;fromDate&quot;).ToString.Substring(0,10)]">
                       <ui:SetValue.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3c69a7c-f127-4085-afce-4a8c0ec89971" Selector="&lt;wnd app='outlook.exe' cls='#32770' title='*' /&gt;&lt;wnd ctrlid='4128' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -341,7 +349,7 @@
                         </ui:Target>
                       </ui:SetValue.Target>
                     </ui:SetValue>
-                    <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="0" DelayBefore="0" DisplayName="Set start time" sap:VirtualizedContainerService.HintSize="338,144" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[datetime.Parse(io_dict_config(&quot;fromDate&quot;).ToString).ToString(&quot;MM/dd/yyyy h:ss tt&quot;).Substring(11)]">
+                    <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="0" DelayBefore="0" DisplayName="Set start time" sap:VirtualizedContainerService.HintSize="387.2,135.2" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[datetime.Parse(io_dict_config(&quot;fromDate&quot;).ToString).ToString(&quot;MM/dd/yyyy h:ss tt&quot;).Substring(11)]">
                       <ui:SetValue.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3c69a7c-f127-4085-afce-4a8c0ec89971" Selector="&lt;wnd app='outlook.exe' cls='#32770' title='*' /&gt;&lt;wnd ctrlid='4130' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -353,12 +361,12 @@
                         </ui:Target>
                       </ui:SetValue.Target>
                     </ui:SetValue>
-                    <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'Start time' so the time will save" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" Version="V1">
+                    <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'Start time' so the time will save" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" Version="V1">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="&lt;wnd app='outlook.exe' cls='#32770' title='*' /&gt;&lt;wnd ctrlid='4130' /&gt;" Guid="194fc3c7-948b-4d8c-a34f-52b0c14a6398" SearchSteps="Selector" />
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="0" DelayBefore="0" DisplayName="Set end date" sap:VirtualizedContainerService.HintSize="338,144" sap2010:WorkflowViewState.IdRef="SetValue_3" Text="[io_dict_config(&quot;toDate&quot;).ToString.Substring(0,10)]">
+                    <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="0" DelayBefore="0" DisplayName="Set end date" sap:VirtualizedContainerService.HintSize="387.2,135.2" sap2010:WorkflowViewState.IdRef="SetValue_3" Text="[io_dict_config(&quot;toDate&quot;).ToString.Substring(0,10)]">
                       <ui:SetValue.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3c69a7c-f127-4085-afce-4a8c0ec89971" Selector="&lt;wnd app='outlook.exe' cls='#32770' title='*' /&gt;&lt;wnd ctrlid='4129' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -370,7 +378,7 @@
                         </ui:Target>
                       </ui:SetValue.Target>
                     </ui:SetValue>
-                    <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="0" DelayBefore="0" DisplayName="Set end time" sap:VirtualizedContainerService.HintSize="338,144" sap2010:WorkflowViewState.IdRef="SetValue_4" Text="[datetime.Parse(io_dict_config(&quot;toDate&quot;).ToString).ToString(&quot;MM/dd/yyyy h:ss tt&quot;).Substring(11)]">
+                    <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="0" DelayBefore="0" DisplayName="Set end time" sap:VirtualizedContainerService.HintSize="387.2,135.2" sap2010:WorkflowViewState.IdRef="SetValue_4" Text="[datetime.Parse(io_dict_config(&quot;toDate&quot;).ToString).ToString(&quot;MM/dd/yyyy h:ss tt&quot;).Substring(11)]">
                       <ui:SetValue.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3c69a7c-f127-4085-afce-4a8c0ec89971" Selector="&lt;wnd app='outlook.exe' cls='#32770' title='*' /&gt;&lt;wnd ctrlid='4131' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -382,12 +390,12 @@
                         </ui:Target>
                       </ui:SetValue.Target>
                     </ui:SetValue>
-                    <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'End time' so the time will save" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" Version="V1">
+                    <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'End time' so the time will save" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" Version="V1">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="&lt;wnd app='outlook.exe' cls='#32770' title='*' /&gt;&lt;wnd ctrlid='4131' /&gt;" Guid="194fc3c7-948b-4d8c-a34f-52b0c14a6398" SearchSteps="Selector" />
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="0" DelayBefore="0" DisplayName="Set email auto-reply message" sap:VirtualizedContainerService.HintSize="338,144" sap2010:WorkflowViewState.IdRef="SetValue_5" Text="[io_dict_config(&quot;outOfOfficeMessage&quot;).ToString]">
+                    <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="0" DelayBefore="0" DisplayName="Set email auto-reply message - inside" sap:VirtualizedContainerService.HintSize="387.2,135.2" sap2010:WorkflowViewState.IdRef="SetValue_5" Text="[io_dict_config(&quot;outOfOfficeMessage&quot;).ToString]">
                       <ui:SetValue.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3c69a7c-f127-4085-afce-4a8c0ec89971" Selector="&lt;wnd app='outlook.exe' cls='#32770' title='*' /&gt;&lt;wnd ctrlid='4100' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -400,27 +408,32 @@
                       </ui:SetValue.Target>
                     </ui:SetValue>
                   </Sequence>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="850,1409" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                  <TryCatch sap2010:Annotation.AnnotationText="Set auto reply for outside my organization&#xD;&#xA;" DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="849.6,1276" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
-                      <Sequence DisplayName="Set outside org auto-reply" sap:VirtualizedContainerService.HintSize="400,870" sap2010:WorkflowViewState.IdRef="Sequence_75">
+                      <Sequence DisplayName="Set outside org auto-reply" sap:VirtualizedContainerService.HintSize="376.8,756" sap2010:WorkflowViewState.IdRef="Sequence_75">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,150" sap2010:WorkflowViewState.IdRef="LogMessage_101" Level="Trace" Message="[&quot;Setting auto-reply for outside my org&quot;]" />
-                        <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click - Outside My Organization" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" Timeout="1" Version="V1">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_101" Level="Trace" Message="[&quot;Setting auto-reply for outside my org&quot;]" />
+                        <uix:NClick AlterIfDisabled="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click - Outside My Organization" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" Timeout="1" Version="V1">
                           <uix:NClick.Target>
                             <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[String.Format(&quot;&lt;wnd app='outlook.exe' cls='#32770' title='{0}' /&gt;&lt;wnd ctrlid='4648' /&gt;&lt;ctrl name='{1}' role='page tab list' /&gt;&lt;ctrl name='{2}' role='page tab' /&gt;&quot;, str_replyText, str_name1, str_name2)]" Guid="194fc3c7-948b-4d8c-a34f-52b0c14a6398" SearchSteps="Selector" />
                           </uix:NClick.Target>
                         </uix:NClick>
-                        <uix:NCheck Action="Check" DelayAfter="0" DelayBefore="0" DisplayName="Check - Auto-reply To People Outside My Organization" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NCheck_2" Version="V1">
+                        <uix:NCheck Action="Check" DelayAfter="0" DelayBefore="0" DisplayName="Check - Auto-reply To People Outside My Organization" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NCheck_2" Version="V1">
                           <uix:NCheck.Target>
                             <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="&lt;wnd app='outlook.exe' cls='#32770' title='*' /&gt;&lt;wnd ctrlid='4225' title='*' /&gt;" Guid="3a46cba0-ee30-44b6-bd88-e8afe52b44e6" IsResponsive="True" SearchSteps="Selector" />
                           </uix:NCheck.Target>
                         </uix:NCheck>
-                        <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="0" DelayBefore="0" DisplayName="Set email auto-reply message" sap:VirtualizedContainerService.HintSize="338,144" sap2010:WorkflowViewState.IdRef="SetValue_6" Text="[io_dict_config(&quot;outOfOfficeMessage&quot;).ToString]">
+                        <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="0" DelayBefore="0" DisplayName="Set email auto-reply message" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="SetValue_6" Text="[io_dict_config(&quot;outOfOfficeMessage_Outside&quot;).ToString]">
                           <ui:SetValue.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3c69a7c-f127-4085-afce-4a8c0ec89971" Selector="&lt;wnd app='outlook.exe' cls='#32770' title='*' /&gt;&lt;wnd ctrlid='4101' /&gt;">
                               <ui:Target.TimeoutMS>
@@ -435,7 +448,7 @@
                       </Sequence>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,219" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,163.2" sap2010:WorkflowViewState.IdRef="Catch`1_4">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -446,7 +459,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,150" sap2010:WorkflowViewState.IdRef="LogMessage_110" Level="Trace" Message="[&quot;No settings for outside my org&quot;]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_110" Level="Trace" Message="[&quot;No settings for outside my org&quot;]" />
                         </ActivityAction>
                       </Catch>
                     </TryCatch.Catches>

@@ -5,10 +5,10 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1363,8642</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1321.6,9591.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="31">
+    <scg:List x:TypeArguments="x:String" Capacity="62">
       <x:String>Microsoft.Graph</x:String>
       <x:String>Microsoft.VisualBasic</x:String>
       <x:String>Newtonsoft.Json</x:String>
@@ -40,10 +40,12 @@
       <x:String>UiPath.UIAutomationCore.Contracts</x:String>
       <x:String>UiPath.UIAutomationNext.Enums</x:String>
       <x:String>UiPath.Web.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="104">
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>Microsoft.Graph</AssemblyReference>
       <AssemblyReference>Microsoft.Graph.Core</AssemblyReference>
@@ -94,6 +96,13 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -101,7 +110,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Update Outlook events" sap:VirtualizedContainerService.HintSize="1331,8577" sap2010:WorkflowViewState.IdRef="Sequence_33">
+  <Sequence DisplayName="Update Outlook events" sap:VirtualizedContainerService.HintSize="1332,9526.4" sap2010:WorkflowViewState.IdRef="Sequence_33">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="int_canceledEventsCount" />
       <Variable x:TypeArguments="x:Int32" Name="int_tentativeEventsCount" />
@@ -114,9 +123,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1289,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="[&quot;Process started&quot;]" />
-    <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="1289,132" sap2010:WorkflowViewState.IdRef="BroadcastMessage_5" Message="Process running" PollingInterval="10" Timeout="0" />
-    <Assign sap:VirtualizedContainerService.HintSize="1289,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1288.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="[&quot;Process started&quot;]" />
+    <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="1288.8,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_5" Message="Process running" PollingInterval="10" Timeout="0" />
+    <Assign sap:VirtualizedContainerService.HintSize="1288.8,81.6" sap2010:WorkflowViewState.IdRef="Assign_16">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Object">[io_dict_Config("resultFormMessage")]</OutArgument>
       </Assign.To>
@@ -124,7 +133,7 @@
         <InArgument x:TypeArguments="x:Object">["Your automation has finished!"]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="1289,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+    <Assign sap:VirtualizedContainerService.HintSize="1288.8,81.6" sap2010:WorkflowViewState.IdRef="Assign_28">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Object">[io_dict_Config("resultsGrid")]</OutArgument>
       </Assign.To>
@@ -132,33 +141,70 @@
         <InArgument x:TypeArguments="x:Object">[""]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="1289,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+    <Assign sap:VirtualizedContainerService.HintSize="1288.8,81.6" sap2010:WorkflowViewState.IdRef="Assign_20">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[str_eventMessage]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">["Out-of-office from " +DateTime.Parse(io_dict_config("fromDate").ToString).ToString("MM/dd/yy h:ss tt") + " to " + datetime.Parse(io_dict_config("toDate").ToString).ToString("MM/dd/yy h:ss tt")]</InArgument>
+        <InArgument x:TypeArguments="x:String">["Out-of-office from " +DateTime.Parse(io_dict_config("fromDate").ToString).ToString("MM/dd/yy h:mm tt") + " to " + datetime.Parse(io_dict_config("toDate").ToString).ToString("MM/dd/yy h:mm tt")]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1289,91" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Trace" Message="[str_eventMessage]" />
-    <If Condition="[Convert.ToBoolean(io_dict_Config(&quot;calendarAccessible&quot;))]" DisplayName="If calendar was accessible previously when you pulled Outook events" sap:VirtualizedContainerService.HintSize="1289,7499" sap2010:WorkflowViewState.IdRef="If_14">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1288.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Trace" Message="[str_eventMessage]" />
+    <If Condition="[Convert.ToBoolean(io_dict_Config(&quot;calendarAccessible&quot;))]" DisplayName="If calendar was accessible previously when you pulled Outook events" sap:VirtualizedContainerService.HintSize="1288.8,8380" sap2010:WorkflowViewState.IdRef="If_14">
       <If.Then>
-        <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" Tenant="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" AuthenticationType="InteractiveToken" DisplayName="Microsoft Office 365 Scope" Environment="Global" sap:VirtualizedContainerService.HintSize="1253,7312" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_2" OAuthApplication="UiPath" Services="Mail, Calendar">
+        <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" Tenant="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" AuthenticationType="InteractiveToken" DisplayName="Microsoft Office 365 Scope" Environment="Global" sap:VirtualizedContainerService.HintSize="1252.8,8196.8" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_2" OAuthApplication="UiPath" Services="Mail, Calendar">
           <uma:Office365ApplicationScope.Body>
             <ActivityAction x:TypeArguments="mg:GraphServiceClient">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="mg:GraphServiceClient" Name="ParentScope" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Calendar block and update events" sap:VirtualizedContainerService.HintSize="1219,7226" sap2010:WorkflowViewState.IdRef="Sequence_35">
+              <Sequence DisplayName="Calendar block and update events" sap:VirtualizedContainerService.HintSize="1219.2,8070.4" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="mg:Event" Name="OutEvent" />
+                  <Variable x:TypeArguments="s:String[]" Name="attendeesArray" />
+                </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="1177,132" sap2010:WorkflowViewState.IdRef="BroadcastMessage_6" Message="Creating out-of-office calendar block" PollingInterval="10" Timeout="0" />
-                <umac:CreateEvent Calendar="{x:Null}" Categories="{x:Null}" Event="{x:Null}" Timezone="{x:Null}" Account="[io_dict_Config(&quot;emailAccount&quot;).ToString]" Body="[str_eventMessage]" DisplayName="Create Out-of-office calendar block" EndTime="[datetime.Parse(io_dict_config(&quot;toDate&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="1177,229" sap2010:WorkflowViewState.IdRef="CreateEvent_3" IsAllDay="False" IsBodyHTML="False" ShowAs="Oof" StartTime="[datetime.Parse(io_dict_config(&quot;fromDate&quot;).ToString)]" Subject="Out-of-office" />
-                <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="1177,132" sap2010:WorkflowViewState.IdRef="BroadcastMessage_7" Message="Out-of-office calendar block set" PollingInterval="10" Timeout="0" />
-                <Assign sap:VirtualizedContainerService.HintSize="1177,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+                <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="1176,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_6" Message="Creating out-of-office calendar block" PollingInterval="10" Timeout="0" />
+                <umac:CreateEvent Calendar="{x:Null}" Categories="{x:Null}" Timezone="{x:Null}" Account="[io_dict_Config(&quot;emailAccount&quot;).ToString]" sap2010:Annotation.AnnotationText="Invite users, and mark as free time&#xD;&#xA;" Body="[str_eventMessage]" DisplayName="Create Out-of-office calendar block" EndTime="[datetime.Parse(io_dict_config(&quot;toDate&quot;).ToString)]" Event="[OutEvent]" sap:VirtualizedContainerService.HintSize="1176,274.4" sap2010:WorkflowViewState.IdRef="CreateEvent_3" IsAllDay="False" IsBodyHTML="False" ShowAs="Oof" StartTime="[datetime.Parse(io_dict_config(&quot;fromDate&quot;).ToString)]" Subject="Out-of-office">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </umac:CreateEvent>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1176,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_15" Message="[&quot;Attendees: &quot; + io_dict_Config(&quot;attendees&quot;).ToString]" />
+                <Assign sap:VirtualizedContainerService.HintSize="1176,81.6" sap2010:WorkflowViewState.IdRef="Assign_30">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:String[]">[attendeesArray]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:String[]">[io_dict_Config("attendees").ToString.Split(","c)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1176,484" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[attendeesArray]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="x:String">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376.8,358.4" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_16" Message="[&quot;Attendee: &quot; + currentItem.Trim]" />
+                        <umac:AddAttendee Account="{x:Null}" Name="{x:Null}" DisplayName="Add Attendee" EmailAddress="[currentItem.Trim]" Event="[OutEvent]" sap:VirtualizedContainerService.HintSize="333.6,136" sap2010:WorkflowViewState.IdRef="AddAttendee_1" Type="Required" />
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                </ui:ForEach>
+                <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="1176,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_7" Message="Out-of-office calendar block set" PollingInterval="10" Timeout="0" />
+                <Assign sap:VirtualizedContainerService.HintSize="1176,81.6" sap2010:WorkflowViewState.IdRef="Assign_21">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Object">[io_dict_Config("resultFormMessage")]</OutArgument>
                   </Assign.To>
@@ -166,9 +212,9 @@
                     <InArgument x:TypeArguments="x:String">[io_dict_Config("resultFormMessage").ToString + vbNewLine + vbNewLine + "Out-of-office calendar block set succesfully"]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <If Condition="[Convert.ToBoolean(io_dict_Config(&quot;eventsFoundFlag&quot;))]" DisplayName="If events were found and need to be updated" sap:VirtualizedContainerService.HintSize="1177,6421" sap2010:WorkflowViewState.IdRef="If_13">
+                <If Condition="[Convert.ToBoolean(io_dict_Config(&quot;eventsFoundFlag&quot;))]" DisplayName="If events were found and need to be updated" sap:VirtualizedContainerService.HintSize="1176,6417.6" sap2010:WorkflowViewState.IdRef="If_13">
                   <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="1141,6234" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                    <Sequence sap:VirtualizedContainerService.HintSize="1142.4,6234.4" sap2010:WorkflowViewState.IdRef="Sequence_40">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="sd:DataTable" Name="dt_resultsGrid" />
                         <Variable x:TypeArguments="njl:JArray" Name="jArr_resultsGrid" />
@@ -178,7 +224,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="1099,132" sap2010:WorkflowViewState.IdRef="BroadcastMessage_8" Message="Updating your out-of-office events with your responses" PollingInterval="10" Timeout="0" />
+                      <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="1099.2,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_8" Message="Updating your out-of-office events with your responses" PollingInterval="10" Timeout="0" />
                       <ui:BuildDataTable DataTable="[dt_resultsGrid]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1099,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Event&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
                       <Sequence DisplayName="Update events" sap:VirtualizedContainerService.HintSize="1099,5398" sap2010:WorkflowViewState.IdRef="Sequence_32">
                         <Sequence.Variables>
@@ -489,6 +535,9 @@
                       </ui:MultipleAssign>
                     </Sequence>
                   </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_46" />
+                  </If.Else>
                 </If>
               </Sequence>
             </ActivityAction>
