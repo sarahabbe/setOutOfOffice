@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1005.5999999999999,5261.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1517.6,5178.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetOutlookEvents_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="80">
@@ -114,21 +114,21 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="GetOutlookEvents" sap:VirtualizedContainerService.HintSize="849.6,5156.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetOutlookEvents" sap:VirtualizedContainerService.HintSize="849.6,5113.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Switch x:TypeArguments="x:Boolean" DisplayName="Switch - If end date is before start date, warn user. Otherwise proceed with retrieving Outlook events" Expression="[datetime.Parse(io_dict_config(&quot;fromDate&quot;).ToString) &gt; datetime.Parse(io_dict_config(&quot;toDate&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="806.4,5067.2" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-      <Sequence x:Key="True" sap:VirtualizedContainerService.HintSize="476.8,345.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Switch x:TypeArguments="x:Boolean" DisplayName="Switch - If end date is before start date, warn user. Otherwise proceed with retrieving Outlook events" Expression="[datetime.Parse(io_dict_config(&quot;fromDate&quot;).ToString) &gt; datetime.Parse(io_dict_config(&quot;toDate&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="806.4,5024" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Sequence x:Key="True" sap:VirtualizedContainerService.HintSize="476.8,344.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="433.6,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_3" Message="[&quot;Error: The end date is set before the starting date.&quot;+vbNewLine+&quot;Please set an ending date after the starting date.&quot;]" PollingInterval="10" Timeout="0" />
-        <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_7">
           <Assign.To>
             <OutArgument x:TypeArguments="x:Object">[io_dict_Config("viewEvents")]</OutArgument>
           </Assign.To>
@@ -137,7 +137,7 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence x:Key="False" DisplayName="Search events for out-of-office period" sap:VirtualizedContainerService.HintSize="766.4,4320" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <Sequence x:Key="False" DisplayName="Search events for out-of-office period" sap:VirtualizedContainerService.HintSize="766.4,4318.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
         <Sequence.Variables>
           <Variable x:TypeArguments="mg:Event[]" Name="evArr_outlookEvents" />
           <Variable x:TypeArguments="x:Int32" Name="int_eventIndex" />
@@ -151,21 +151,21 @@
         </sap:WorkflowViewStateService.ViewState>
         <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="723.2,134.4" sap2010:WorkflowViewState.IdRef="BroadcastMessage_2" Message="[&quot;Checking your calendar for events while you're out-of-office&quot; + vbNewLine + &quot;If requested, please authorize O365 access to UiPath&quot;]" PollingInterval="10" Timeout="0" />
         <ui:BuildDataTable DataTable="[dt_events]" DisplayName="Build Events Data Table" sap:VirtualizedContainerService.HintSize="723.2,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Index&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;organizer&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;participants&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;startTime&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="723.2,3668.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="723.2,3667.2" sap2010:WorkflowViewState.IdRef="TryCatch_1">
           <TryCatch.Try>
-            <Sequence DisplayName="Get Outlook events" sap:VirtualizedContainerService.HintSize="686.4,2817.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence DisplayName="Get Outlook events" sap:VirtualizedContainerService.HintSize="686.4,2816" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" Tenant="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" AuthenticationType="InteractiveToken" DisplayName="Microsoft Office 365 Scope" Environment="Global" sap:VirtualizedContainerService.HintSize="643.2,172.8" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_1" OAuthApplication="UiPath" Services="Mail, Calendar">
+              <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" Tenant="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" AuthenticationType="InteractiveToken" DisplayName="Microsoft Office 365 Scope" Environment="Default" sap:VirtualizedContainerService.HintSize="643.2,172" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_1" OAuthApplication="UiPath" Services="Mail, Calendar">
                 <uma:Office365ApplicationScope.Body>
                   <ActivityAction x:TypeArguments="mg:GraphServiceClient">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="mg:GraphServiceClient" Name="ParentScope" />
                     </ActivityAction.Argument>
-                    <umac:SearchEvents Calendar="{x:Null}" EventId="{x:Null}" SearchQuery="{x:Null}" Account="[io_dict_Config(&quot;emailAccount&quot;).ToString]" DisplayName="Search Events" EndDate="[datetime.Parse(io_dict_config(&quot;toDate&quot;).ToString)]" Events="[evArr_outlookEvents]" sap:VirtualizedContainerService.HintSize="333.6,86.4" sap2010:WorkflowViewState.IdRef="SearchEvents_1" MaxResults="100" ReturnRecurring="True" StartDate="[datetime.Parse(io_dict_config(&quot;fromDate&quot;).ToString)]">
+                    <umac:SearchEvents Calendar="{x:Null}" EventId="{x:Null}" SearchQuery="{x:Null}" Account="[io_dict_Config(&quot;emailAccount&quot;).ToString]" DisplayName="Search Events" EndDate="[datetime.Parse(io_dict_config(&quot;toDate&quot;).ToString)]" Events="[evArr_outlookEvents]" sap:VirtualizedContainerService.HintSize="333.6,85.6" sap2010:WorkflowViewState.IdRef="SearchEvents_1" MaxResults="100" ReturnRecurring="True" StartDate="[datetime.Parse(io_dict_config(&quot;fromDate&quot;).ToString)]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -176,7 +176,7 @@
                   </ActivityAction>
                 </uma:Office365ApplicationScope.Body>
               </uma:Office365ApplicationScope>
-              <ui:ForEach x:TypeArguments="mg:Event" CurrentIndex="[int_eventIndex]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="643.2,1116.8" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[evArr_outlookEvents]">
+              <ui:ForEach x:TypeArguments="mg:Event" CurrentIndex="[int_eventIndex]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="643.2,1116" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[evArr_outlookEvents]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="mg:Event">
                     <ActivityAction.Argument>
@@ -400,7 +400,7 @@
             <InArgument x:TypeArguments="x:String">["I am currently out-of-office from " +DateTime.Parse(io_dict_config("fromDate").ToString).ToString("MM/dd/yy h:mm tt") + " to " + datetime.Parse(io_dict_config("toDate").ToString).ToString("MM/dd/yy h:mm tt")+", please excuse any delays in responses."]</InArgument>
           </Assign.Value>
         </Assign>
-        <Assign sap2010:Annotation.AnnotationText="Adding the dates to the out of office reply for outside the organization&#xD;&#xA;" sap:VirtualizedContainerService.HintSize="723.2,125.6" sap2010:WorkflowViewState.IdRef="Assign_14">
+        <Assign sap2010:Annotation.AnnotationText="Adding the dates to the out of office reply for outside the organization&#xA;" sap:VirtualizedContainerService.HintSize="723.2,125.6" sap2010:WorkflowViewState.IdRef="Assign_14">
           <Assign.To>
             <OutArgument x:TypeArguments="x:Object">[io_dict_Config("outOfOfficeMessage_Outside")]</OutArgument>
           </Assign.To>
